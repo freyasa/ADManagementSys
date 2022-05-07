@@ -1,6 +1,7 @@
 <%@ page import="com.exmaple.Service.UserServices" %>
 <%@ page import="com.exmaple.Entity.User" %>
 <%@ page import="com.exmaple.Service.ItemService" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,7 +163,7 @@
                 <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
                     <ul class="sub-menu-list">
                         <li><a href="basic_table.html"> Basic Table</a></li>
-                        <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                        <li><a href="dynamic_table.jsp"> Advanced Table</a></li>
                         <li><a href="responsive_table.html"> Responsive Table</a></li>
                         <li><a href="editable_table.html"> Edit Table</a></li>
                     </ul>
@@ -955,6 +956,12 @@
 
 <!--Dashboard Charts-->
 <%--<script src="js/dashboard-chart-init.js"></script>--%>
+
+<%
+    ArrayList<Integer> last10days = new ItemService().getLast10DaysVisit(user.getUsername());
+    ArrayList<Integer> allLast10days = new ItemService().getAllUsersLast10DaysVisit(user.getUsername());
+%>
+
 <script>
     // Use Morris.Area instead of Morris.Line
     // Morris.Donut({
@@ -977,35 +984,35 @@
     $(function() {
 
         var d1 = [
-            [0, 0],
-            [1, 0],
-            [2, 437],
-            [3, 361],
-            [4, 549],
-            [5, 618],
-            [6, 570],
-            [7, 758],
-            [8, 1],
-            [9, 1],
-            [10, 1]
+            [0, <%=last10days.get(10)%>],
+            [1, <%=last10days.get(9)%>],
+            [2, <%=last10days.get(8)%>],
+            [3, <%=last10days.get(7)%>],
+            [4, <%=last10days.get(6)%>],
+            [5, <%=last10days.get(5)%>],
+            [6, <%=last10days.get(4)%>],
+            [7, <%=last10days.get(3)%>],
+            [8, <%=last10days.get(2)%>],
+            [9, <%=last10days.get(1)%>],
+            [10, <%=last10days.get(0)%>]
 
         ];
         var d2 = [
-            [0, 401],
-            [1, 520],
-            [2, 337],
-            [3, 261],
-            [4, 449],
-            [5, 518],
-            [6, 333],
-            [7, 222],
-            [8, 22],
-            [9, 1],
-            [10, 1]
+            [0, <%=allLast10days.get(10)%>],
+            [1, <%=allLast10days.get(9)%>],
+            [2, <%=allLast10days.get(8)%>],
+            [3, <%=allLast10days.get(7)%>],
+            [4, <%=allLast10days.get(6)%>],
+            [5, <%=allLast10days.get(5)%>],
+            [6, <%=allLast10days.get(4)%>],
+            [7, <%=allLast10days.get(3)%>],
+            [8, <%=allLast10days.get(2)%>],
+            [9, <%=allLast10days.get(1)%>],
+            [10, <%=allLast10days.get(0)%>]
         ];
 
         var data = ([{
-            label: "New Visitors",
+            label: "My ADs Visitors",
             data: d1,
             lines: {
                 show: true,
@@ -1016,7 +1023,7 @@
             }
         },
             {
-                label: "Unique Visitors",
+                label: "All ADs Visitors",
                 data: d2,
                 lines: {
                     show: true,
