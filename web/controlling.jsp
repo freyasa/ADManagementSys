@@ -59,7 +59,6 @@
     int yearlyVisitor = new ItemService().getYearlyVisitors(user.getUsername());
 
 %>
-
 <body class="sticky-header">
 
 <section>
@@ -133,8 +132,8 @@
 
                 <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="mail.html"> Inbox</a></li>
-                        <li><a href="mail_compose.html"> Compose Mail</a></li>
+                        <li><a href="mail.jsp"> Inbox</a></li>
+                        <li><a href="mail_compose.jsp"> Compose Mail</a></li>
                         <li><a href="mail_view.html"> View Mail</a></li>
                     </ul>
                 </li>
@@ -177,7 +176,7 @@
                 </li>
                 <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
                     <ul class="sub-menu-list">
-                        <li><a href="profile.html"> Profile</a></li>
+                        <li><a href="profile.jsp"> Profile</a></li>
                         <li><a href="invoice.jsp"> Invoice</a></li>
                         <li><a href="pricing_table.jsp"> Pricing Table</a></li>
                         <li><a href="timeline.html"> Timeline</a></li>
